@@ -99,6 +99,10 @@ The Manual + Vision models report WPM across the first 300 words.
 
 The Manual model and Manual + Vision model use different task settings and were calibrated separately. Within each model version, the same parameter set was applied across all four layouts.
 
+function_new.lisp runs VisiTor.py with the `python` found on your PATH. To use a different interpreter (for example an Anaconda install), define its path before loading function_new.lisp:
+
+    (defvar *python-executable* "C:/path/to/anaconda3/python")
+
 The Manual + Vision models require function_new.lisp, TemplateMatching.py, Utils.py, VisiTor.py, Window.png, and the Images_v3 folder to remain in the same directory as the model files.
 
 Abacus typing does not yet have direct human text entry benchmark data, so its result should be interpreted as a model prediction for future human testing.

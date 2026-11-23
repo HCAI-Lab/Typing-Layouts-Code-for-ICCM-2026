@@ -4,13 +4,16 @@
 (defvar *python-address* (format nil "C:/~aVisiTor.py" *load-pathname-directory-string*))
 (defvar *directory* (format nil "C:/~aImages_v3" *load-pathname-directory-string*))
 (defvar *clicking-occurred* nil)
+;; Python interpreter used to run VisiTor.py. Set this to the full path of
+;; your interpreter (e.g. an Anaconda python.exe) if "python" is not on PATH.
+(defvar *python-executable* "python")
 (ql:quickload 'inferior-shell)
 (defvar *clicking-occurred* nil)
 
 (
     defun run-shell-command (command &optional arglist)
   (let ((shell-request-list
-         (append '("C:/Users/helin/anaconda3/python") (list *python-address*)
+         (append (list *python-executable*) (list *python-address*)
                  (list command) '("--Dir") (list *directory*) '("--arg2") arglist)))
     (print shell-request-list)
     (inferior-shell:run/ss shell-request-list))
